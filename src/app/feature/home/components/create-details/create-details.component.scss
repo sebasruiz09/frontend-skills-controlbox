@@ -1,0 +1,36 @@
+section {
+  display: flex;
+  padding: 10px;
+  gap: 10px;
+}
+
+div {
+  max-width: 400px;
+
+  > form {
+    display: flex;
+    flex-direction: column;
+    input {
+      margin: 5px 0 0 0;
+      padding: 5px 10px;
+    }
+
+    > button {
+      padding: 10px 0;
+      margin: 5px 0;
+      background: #1a73e8;
+      border: none;
+      color: #FFF;
+      transition: all 0.3s ease;
+
+      &:disabled {
+        background: #8bb7f1;
+      }
+    }
+
+    > select {
+      margin: 5px 0;
+      padding: 8px;
+    }
+  }
+}

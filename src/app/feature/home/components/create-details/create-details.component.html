@@ -1,0 +1,50 @@
+<section>
+  <div>
+    <p>create Corresponsal</p>
+    <form [formGroup]="corresponsalForm" (ngSubmit)="createCorresponsal()">
+      <input
+        type="text"
+        placeholder="Corresponsal"
+        formControlName="corNombre"
+      />
+      <button type="submit" [disabled]="corresponsalForm.invalid">
+        <span>create</span>
+      </button>
+    </form>
+  </div>
+
+  <div>
+    <p>Create Oficina</p>
+    <form [formGroup]="oficinasForm" (ngSubmit)="createOficina()">
+      <select formControlName="ofiCorresponsalId">
+        <option
+          [value]="item.corCorresponsalId"
+          *ngFor="let item of corresponsales"
+        >
+          {{ item.corNombre }}
+        </option>
+      </select>
+      <input type="text" placeholder="Oficina" formControlName="ofiNombre" />
+      <button [disabled]="oficinasForm.invalid" type="submit">
+        <span>create Oficina</span>
+      </button>
+    </form>
+  </div>
+
+  <div>
+    <p>Create Giro</p>
+    <form [formGroup]="girosForm" (ngSubmit)="createGiro()">
+      <select formControlName="girOficinaId">
+        <option [value]="item.ofiOficinaId" *ngFor="let item of oficinas">
+          {{ item.ofiNombre }}
+        </option>
+      </select>
+      <input
+        type="number"
+        placeholder="Giro Recibo"
+        formControlName="girRecibo"
+      />
+      <button type="submit" [disabled]="girosForm.invalid">create Giro</button>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,30 @@
+<article>
+  <table>
+    <thead>
+      <tr>
+        <th>Corresponsales</th>
+        <th>Oficinas</th>
+        <th>Giros</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let item of data">
+        <ng-container *ngFor="let value of item.oficinas">
+          <tr class="tableColumn">
+            <td>{{ item.corNombre }}</td>
+            <td>
+              {{ value.ofiNombre }}
+            </td>
+            <td>{{ value.giros }}</td>
+            <td>
+              <button>update</button>
+              <button (click)="deleteCorresponsal(value)">delete</button>
+              <button (click)="automaticGiro(value.ofiOficinaId)">new Giro</button>
+            </td>
+          </tr>
+        </ng-container>
+      </ng-container>
+    </tbody>
+  </table>
+</article>
